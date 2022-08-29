@@ -1,0 +1,9 @@
+SELECT
+contacts.contact_name, contacts.contact_number
+FROM
+contacts
+LEFT OUTER JOIN
+friends ON contacts.id=friends.contact_id
+GROUP BY
+contacts.id
+HAVING COUNT(friends.contact_id)>5

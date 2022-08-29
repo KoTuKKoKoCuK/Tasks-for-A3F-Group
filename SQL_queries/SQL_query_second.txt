@@ -1,0 +1,13 @@
+SELECT DISTINCT contacts.contact_name, cont1.contact_name
+FROM contacts INNER JOIN friends
+ON contacts.id=friends.contact_id
+INNER JOIN contacts cont1
+ON cont1.id=friends.friend_id
+WHERE friends.contact_id > friends.friend_id
+UNION
+SELECT DISTINCT  cont1.contact_name, contacts.contact_name
+FROM contacts INNER JOIN friends
+ON contacts.id=friends.contact_id
+INNER JOIN contacts cont1
+ON cont1.id=friends.friend_id
+WHERE friends.contact_id < friends.friend_id
